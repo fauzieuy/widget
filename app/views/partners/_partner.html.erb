@@ -1,0 +1,7 @@
+<tr>
+    <td><%= partner.name %></td>
+    <td><%= partner.url %></td>
+    <td><%= partner.created_at.strftime("%d-%m-%Y %H:%M:%S") %></td>
+    <td><%= partner.updated_at.strftime("%d-%m-%Y %H:%M:%S") %></td>
+    <td><%= link_to 'Detail', partner_path(partner) %> | <%= link_to 'Delete', partner_path(partner), method: :delete, confirm: 'Are you sure?' %></td>
+</tr>

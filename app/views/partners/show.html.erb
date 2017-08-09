@@ -1,0 +1,39 @@
+<h1><%= @partner.name %></h1>
+
+<h2>New Document</h2><br/>
+<div class="wrap-flash"></div>
+  <%= form_for @document, url: upload_documents_path do |d| %>
+    <%= hidden_field_tag :partner_id, @partner.id %>
+    <%= d.label :file %><br/>
+    <%= d.file_field :file %><br/><br/>
+
+    <%= d.submit 'Upload Document' %>
+  <% end %>
+
+<br/>
+<br/>
+
+<div>
+  <table class="table table-bordered">
+      <thead>
+      <tr>
+          <th>Name</th>
+          <th style="width: 15%;">Created At</th>
+          <th style="width: 15%;">Updated At</th>
+          <th style="width: 15%;">Action</th>
+      </tr>
+      </thead>
+      <tbody id="listRecord">
+      <% if @documents.blank? %>
+          <tr>
+              <td colspan="4" class="text-center">Document is empty</td>
+          </tr>
+      <% else %>
+          <%= render @documents %>
+      <% end %>
+      </tbody>
+  </table>
+</div>
+<div id="paginator" style="margin: 10px 0px;">
+    <%= paginate @documents, :remote => true %>
+</div>

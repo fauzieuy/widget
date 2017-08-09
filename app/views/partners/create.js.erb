@@ -1,0 +1,9 @@
+<% if @result[:code] == 1 %>
+  $('span[id^=span_partner_]').remove();
+  $('#listRecord').html("<%= escape_javascript(render(@partners)) %>");
+  $('.wrap-flash').html('<%= escape_javascript(flash_message(@result[:code], @result[:message])) %>');
+<% elsif @result[:code] == 0 %>
+	<% @result[:message].each do |k, v| %>
+		$('#new_partner #partner_<%= "#{k}" %>').after('<span id="span_partner_<%= k.to_s %>"><%= escape_javascript(v.first.html_safe) %></span>');
+	<% end %>
+<% end %>

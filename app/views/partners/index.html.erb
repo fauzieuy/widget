@@ -1,0 +1,40 @@
+<h1>New Partner</h1><br/>
+<div class="wrap-flash"></div>
+  <%= form_for @partner, url: partners_path, remote: true do |p| %>
+    <%= p.label :name %><br/>
+    <%= p.text_field :name %><br/>
+
+    <%= p.label :url %><br/>
+    <%= p.text_field :url %><br/>
+
+    <%= p.submit %>
+  <% end %>
+
+<br/>
+<br/>
+
+<div>
+  <table class="table table-bordered">
+      <thead>
+      <tr>
+          <th>Name</th>
+          <th>URL</th>
+          <th style="width: 15%;">Created At</th>
+          <th style="width: 15%;">Updated At</th>
+          <th style="width: 15%;">Action</th>
+      </tr>
+      </thead>
+      <tbody id="listRecord">
+      <% if @partners.blank? %>
+          <tr>
+              <td colspan="5" class="text-center">Partner is empty</td>
+          </tr>
+      <% else %>
+          <%= render @partners %>
+      <% end %>
+      </tbody>
+  </table>
+</div>
+<div id="paginator" style="margin: 10px 0px;">
+    <%= paginate @partners, :remote => true %>
+</div>

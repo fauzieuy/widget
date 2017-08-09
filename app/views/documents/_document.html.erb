@@ -1,0 +1,9 @@
+<tr>
+    <td><%= document.filename %></td>
+    <td><%= document.created_at.strftime("%d-%m-%Y %H:%M:%S") %></td>
+    <td><%= document.updated_at.strftime("%d-%m-%Y %H:%M:%S") %></td>
+    <td>
+      <%= link_to 'Download', download_document_path(document), target: '_blank' %> |
+      <%= link_to 'Delete', document_path(document), method: 'delete', confirm: 'Are you sure' %>
+    </td>
+</tr>

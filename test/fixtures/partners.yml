@@ -1,0 +1,21 @@
+# == Schema Information
+#
+# Table name: partners
+#
+#  id            :integer          not null, primary key
+#  name          :string           default(""), not null
+#  counter_click :integer          default("0")
+#  created_at    :datetime         not null
+#  updated_at    :datetime         not null
+#  url           :string
+#
+
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  name: MyString
+  counter_click: 1
+
+two:
+  name: MyString
+  counter_click: 1

@@ -1,0 +1,2 @@
+$('#listRecord').html('<%= escape_javascript render(@partners) %>');
+$('#paginator').html('<%= escape_javascript(paginate(@partners, :remote => true).to_s) %>');
