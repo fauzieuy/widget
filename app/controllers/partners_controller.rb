@@ -13,12 +13,12 @@ class PartnersController < ApplicationController
 
   def create
     @partner = Partner.new(partner_params)
-		if @partner.save
+    if @partner.save
       @partners = Partner.order(updated_at: :desc).page(params[:page]).per(params[:per] || 10)
-			@result = { code: 1, message: 'Partner was successfully created.'}
-		else
-			@result = { code: 0, message: @partner.errors.messages }
-		end
+      @result = { code: 1, message: 'Partner was successfully created.'}
+    else
+      @result = { code: 0, message: @partner.errors.messages }
+    end
   end
 
   def destroy
